@@ -20,6 +20,7 @@ body {
 .caption{
     color: white;
     margin: 400px 100px;
+    position: fixed;
 }
 
 .right {
