@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Me.io</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="left">
+            <div class="caption">
+                <h3>by Benno Alif Anggara</h3>
+                <h5>10118024</h5>
+                <h5>IF-1</h5>
+            </div>
+        </div>
+
+        <div class="right">
+            <h1>Me.io</h1>
+
+            <div class="input">
+                <form name="fform">
+
+                    <input id="nama" type="text" name="name" placeholder="Nama Kamu">
+
+                    <p>Jenis Kelamin</p>
+                    <input type="radio" name="gender" value="Laki-laki"> Laki-laki
+                    <input type="radio" name="gender" value="Perempuan"> Perempuan
+
+                    <p>Pekerjaan</p>
+                    <select id="select" name="job">
+                        <option value="Pilih Pekerjaan Anda">Pilih...</option>
+                        <option value="Pelajar">Pelajar</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="PNS">PNS</option>
+                        <option value="Wiraswasta">Wiraswasta</option>
+                        <option value="Youtuber">Youtuber</option>
+                    </select>
+
+                    <p>Hobi</p>
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" value="Menulis" name="nulis">Menulis</td>
+                            <td><input type="checkbox" value="Olahraga" name="olahraga">Olahraga</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="Fotografi" name="foto">Fotografi</td>
+                            <td><input type="checkbox" value="Komputer" name="komputer">Komputer</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="Otomotif" name="otomotif">Otomotif</td>
+                            <td><input type="checkbox" value="Programming" name="it">Programming</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="Dll." name="dll">Dll.</td>
+                        </tr>
+                    </table>
+
+                    <p>Tentang saya</p>
+                    <textarea name="tentang" cols="30" rows="10"></textarea>
+                    <p>
+                        <input class="btn" type="button" value="Submit" onclick="process()">
+                        <input class="btn" type="reset" value="Reset">
+                    </p>
+                </form>
+            </div>
+
+            <div class="output">
+                <h1>Me.io</h1>
+
+                <p>Nama</p>
+                <h2 id="name"></h2>
+                <p>Jenis Kelamin</p>
+                <h2 id="jk"></h2>
+                <p>Pekerjaan</p>
+                <h2 id="job"></h2>
+                <p>Hobi</p>
+                <h3 id="hobi"></h3>
+                <p>Tentang saya</p>
+                <h4 id="about"></h4>
+
+                <button class="btn" onclick="scrollWin()">Kembali</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function process() {
+            var name = (document.fform.name.value)
+            var jk = (document.fform.gender.value)
+            var job = (document.fform.job.value)
+            var desc = (document.fform.tentang.value)
+            desc = desc.replace(/\r?\n/g, '<br />');
+            var hobi1 = ''
+            var hobi2 = ''
+            var hobi3 = ''
+            var hobi4 = ''
+            var hobi5 = ''
+            var hobi6 = ''
+            var hobi7 = ''
+
+
+            var printName = document.querySelector('#name')
+            var printJk = document.querySelector('#jk')
+            var printJob = document.querySelector('#job')
+            var printHobi = document.querySelector('#hobi')
+            var printAbout = document.querySelector('#about')
+
+            if (document.fform.nulis.checked) {
+                hobi1 = document.fform.nulis.value + ', '
+            }
+            if (document.fform.olahraga.checked) {
+                hobi2 = document.fform.olahraga.value + ', '
+            }
+            if (document.fform.foto.checked) {
+                hobi3 = document.fform.foto.value + ', '
+            }
+            if (document.fform.komputer.checked) {
+                hobi4 = document.fform.komputer.value + ', '
+            }
+            if (document.fform.otomotif.checked) {
+                hobi5 = document.fform.otomotif.value + ', '
+            }
+            if (document.fform.it.checked) {
+                hobi6 = document.fform.it.value + ', '
+            }
+            if (document.fform.dll.checked) {
+                hobi7 = document.fform.dll.value
+            }
+
+            printName.innerHTML = name;
+            printJk.innerHTML = jk;
+            printJob.innerHTML = job;
+            printHobi.innerHTML = hobi1 + hobi2 + hobi3 + hobi4 + hobi5 + hobi6 + hobi7
+            printAbout.innerHTML = desc;
+
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        function scrollWin() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+</body>
+
+</html>
